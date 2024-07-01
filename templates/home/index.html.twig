@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Store{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{asset('styles/home.css')}}">
+    <div class="hero">
+    {% include "components/navbar.html.twig" %}
+        <h1>Hello homepage ✅</h1>
+     </div>
+    
+   
+{% endblock %}

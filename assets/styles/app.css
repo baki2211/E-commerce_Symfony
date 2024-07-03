@@ -1,0 +1,25 @@
+
+.popover-body a {
+    padding: 5px 0;
+}
+.popover-body ul {
+    list-style-type: none;
+    padding: 5px;
+}
+.popover {
+    max-width: 300px;
+    width: 600px;
+}
+
+.categBar{
+    background-color: rgb(61, 61, 105);
+    
+    a{
+        text-decoration: none;
+        padding: 3px;
+    }
+}
+.carousel img{
+    max-height: 400px;
+    height: max-content;
+}

@@ -1,12 +1,7 @@
-<div class="d-flex categBar p-1">
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
-    <a href="">Category</a>
+
+<div class="d-flex categBar p-1 mr-1">
+{% for category in categories %}
+    <a class="p-3" href="">{{category.name}}</a>
+{% endfor %}
+    
 </div>

@@ -1,4 +1,10 @@
-
+body {
+    background-color: rgb(227,230,230);
+}
+.navstyle a, .navstyle ul li, .d-flex a{
+    color: white;
+  
+}
 .popover-body a {
     padding: 5px 0;
 }
@@ -22,4 +28,23 @@
 .carousel img{
     max-height: 400px;
     height: max-content;
+}
+.footer{
+    background-color: rgb(35,47,62);
+    color: white;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.botFu{
+    background-color: rgb(19,25,33);
+}
+
+.logincard{
+    max-width: 440px;
+    width:max-content;
+    margin-left: 50px;
+
 }

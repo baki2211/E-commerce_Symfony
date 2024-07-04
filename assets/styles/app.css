@@ -1,5 +1,6 @@
 body {
     background-color: rgb(227,230,230);
+    overflow-x: hidden;
 }
 .navstyle a, .navstyle ul li, .d-flex a{
     color: white;

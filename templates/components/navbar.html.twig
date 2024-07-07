@@ -11,10 +11,18 @@
                 <a class="navbar-brand" href="{{ path('app_home') }}">
                     <img src="{{ asset('img/famatonW.png') }}" alt="famaton logo">
                 </a>
-                <a class="align-content-center p-3 link-opacity-25-hover link-offset-2 link-underline link-underline-opacity-0" href="#">
-                    <i class="fa-solid fa-map-location"></i> <span></span> Update location
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                
+                <a class="align-content-center p-3 link-opacity-25-hover link-offset-2 link-underline link-underline-opacity-0" role="button" id="popover-address" data-bs-toggle="popover" data-bs-trigger="hover focus"  tabindex="0">
+                    <i class="fa-solid fa-map-location"></i>  User Address
                 </a>
+                {% else %}
+                    <a class="align-content-center p-3 link-opacity-25-hover link-offset-2 link-underline link-underline-opacity-0" role="button" id="popover-address" data-bs-toggle="popover" data-bs-trigger="hover focus"  tabindex="0">
+                    <i class="fa-solid fa-map-location"></i>  Update address
+                </a>
+                {% endif %}
             </div>
+
             <form class="d-flex col-6" style="margin-right: 40px;" role="search">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,6 +45,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
                         </li>
+                        <li class="nav-item p-2">
+                            <a class="align-content-center link-underline link-underline-opacity-0" href="#"><i class="fa-solid fa-basket-shopping"></i> Basket</a>
+                        </li>
                     {% else %}
                         <li class="nav-item p-2">
                             <a tabindex="0" class="align-content-center link-underline link-underline-opacity-0 dropdown-toggle" role="button" id="popover-account-list" data-bs-toggle="popover" data-bs-trigger="hover focus" >
@@ -52,7 +63,17 @@
         </div>
     </nav>
 
-    <!-- Hidden div to hold popover content -->
+    <!-- Hidden div to hold popover content for address -->
+    <div id="popover-address-content" class="d-none">
+        <div class="popover-body text-center">
+          <div>
+            <a class="btn btn-warning p-2 mb-2" href="{{ path('app_login') }}">Sign In</a>
+            <p>New Customer? Start <a href="{{ path('app_register') }}">Here</a></p>
+          </div>
+        </div>
+    </div>
+
+    <!-- Hidden div to hold popover content for user accoutn -->
     <div id="popover-content" class="d-none">
         <div class="popover-body text-center">
           <div>
@@ -84,16 +105,7 @@
         </div>
     </div>
 
-    <script>
-       document.addEventListener('DOMContentLoaded', function () {
-    var popoverTriggerEl = document.getElementById('popover-account-list');
-    var popoverContent = document.getElementById('popover-content').innerHTML
-    var popover = new bootstrap.Popover(popoverTriggerEl, {
-        html: true,
-        content: popoverContent,
-        placement: 'bottom'
-    });
-});
-    </script>
+
+    <script src="{{ asset('js/navbar.js') }}"></script>
 </body>
 </html>

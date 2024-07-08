@@ -16,6 +16,17 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+
+    public function findByCategoryWithLimit($category, $limit = 4)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.category = :category')
+            ->setParameter('category', $category)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+            
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */

@@ -1,0 +1,21 @@
+{% if is_granted("IS_AUTHENTICATED_FULLY")%}
+<span></span>
+{% else %}
+<div class="mt-5 mb-5">
+    <div class="center text-center">
+        <div class="card" >
+            <div class="card-body p-2">
+                <div class="row text-center" ><p>See personalised recommendations</p></div>
+        <div class="row">
+            <span><a href="{{path('app_login')}}" class="btn btn-warning "><b>Sign in</b></a></span>
+        </div>
+        <div class="row"><p>New customer? </p><a href="{{path('app_register')}}">Start here.</a></div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endif %}
+
+
+

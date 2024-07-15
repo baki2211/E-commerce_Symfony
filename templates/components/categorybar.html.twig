@@ -1,7 +1,7 @@
 
-<div class="d-flex categBar p-1">
+<div class="d-flex categBar p-1 justify-content-center">
 {% for category in categories %}
-    <a class="p-1" href="">{{category.name}} |</a>
+    <a class="p-1 mr-2 nav-link" href="{{ path('app_prod_filtered', {'id': category.id}) }}">{{category.name}} </a>
 {% endfor %}
     
 </div>

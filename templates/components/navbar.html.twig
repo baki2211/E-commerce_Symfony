@@ -30,7 +30,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         {% for category in categories %}
-                            <li><button class="dropdown-item" type="button">{{category.name}}</button></li>
+                            <li><button style="color:black;" class="dropdown-item nav-link" type="button" href="{{ path('app_prod_filtered', {'id': category.id}) }}">{{category.name}}</button></li>
                         {% endfor %}
                         
                     </ul>

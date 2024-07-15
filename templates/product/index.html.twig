@@ -13,6 +13,11 @@
             <div class="card-body">
               <h5 class="card-title">{{ product.name }}</h5>
               <p class="card-text">{{ product.description }}</p>
+               <p class="card-text">
+                {% for category in product.category %}
+                    {{ category.name }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
             <div class="flex-row">
                 <a class="btn btn-primary" href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
               <a class="btn btn-success" href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -85,4 +86,20 @@ class ProductController extends AbstractController
 
         return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/filter/{id}', name: 'app_prod_filtered', methods: ['GET'])]
+    public function filterByCategory(ProductRepository $productRepository, CategoryRepository $categoryRepository, $id): Response
+    {
+        $category = $categoryRepository->find($id);
+
+        if (!$category) {
+            throw $this->createNotFoundException('Category not found');
+        }
+
+        $products = $category->getProducts();
+
+        return $this->render('product/filtered.html.twig', [
+            'products' => $products,
+    ]);
+}
 }
